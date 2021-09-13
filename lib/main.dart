@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_shop_flutter/screens/ProductsOverView.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,7 +24,7 @@ class MyHomePage extends StatelessWidget {
         title: Text('MyShop'),
       ),
       body: Center(
-        child: Text('Let\'s build a shop!'),
+        child: ProductsOverView(),
       ),
     );
   }
