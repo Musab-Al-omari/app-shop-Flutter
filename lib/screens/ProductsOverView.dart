@@ -21,7 +21,7 @@ class _ProductsOverViewState extends State<ProductsOverView> {
           PopupMenuButton(
             onSelected: (myfilter selectedValue) {
               setState(() {
-                if (selectedValue == myfilter.favorite) {
+                if (selectedValue == myfilter.all) {
                   isfavorite = true;
                 } else {
                   isfavorite = false;
