@@ -12,8 +12,8 @@ class MyGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final myProducts = isfavorte
-        ? Provider.of<ProductProvider>(context).myProducts
-        : Provider.of<ProductProvider>(context).myFavoriteProducts;
+        ? Provider.of<ProductProvider>(context).myFavoriteProducts
+        : Provider.of<ProductProvider>(context).myProducts;
     return GridView.builder(
       padding: EdgeInsets.all(7),
       itemCount: myProducts.length,

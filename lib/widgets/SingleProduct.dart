@@ -25,7 +25,7 @@ class SingleProduct extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           footer: GridTileBar(
-            backgroundColor: Colors.black87,
+            backgroundColor: Color.fromRGBO(194, 239, 179, 60),
             leading: Consumer<Products>(
                 builder: (context, product, _) => IconButton(
                       icon: Icon(
@@ -36,19 +36,18 @@ class SingleProduct extends StatelessWidget {
                       onPressed: () {
                         product.ToggleIsFavorite();
                       },
-                      color: Theme.of(context).colorScheme.onSecondary,
+                      color: Theme.of(context).colorScheme.surface,
                     )),
             title: Text(
               product.title,
-              style:
-                  TextStyle(color: Theme.of(context).colorScheme.onSecondary),
+              style: TextStyle(color: Theme.of(context).colorScheme.surface),
             ),
             trailing: IconButton(
               icon: Icon(Icons.shopping_cart_outlined),
               onPressed: () {
                 cart.addItem(product.id, product.price, product.title);
               },
-              color: Theme.of(context).colorScheme.onSecondary,
+              color: Theme.of(context).colorScheme.surface,
             ),
           ),
         ),

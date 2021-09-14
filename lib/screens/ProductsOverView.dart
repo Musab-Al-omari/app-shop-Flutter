@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_shop_flutter/screens/Cart_screen.dart';
 import 'package:the_shop_flutter/widgets/MyGridView.dart';
 import 'package:the_shop_flutter/widgets/badge.dart';
 import 'package:provider/provider.dart';
@@ -23,7 +24,7 @@ class _ProductsOverViewState extends State<ProductsOverView> {
           PopupMenuButton(
             onSelected: (myfilter selectedValue) {
               setState(() {
-                if (selectedValue == myfilter.all) {
+                if (selectedValue == myfilter.favorite) {
                   isfavorite = true;
                 } else {
                   isfavorite = false;
@@ -45,10 +46,12 @@ class _ProductsOverViewState extends State<ProductsOverView> {
           Consumer<CartProvider>(
             builder: (cx, cart, _) => Badge(
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed(CartScreen.CartScreenRoute);
+                },
                 icon: Icon(Icons.shopping_cart),
               ),
-              value: 2.toString(),
+              value: cart.cartCount.toString(),
             ),
           ),
         ],

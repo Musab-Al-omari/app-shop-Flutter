@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_shop_flutter/providers/Cart_provider.dart';
 import 'package:the_shop_flutter/providers/Products_provider.dart';
+import 'package:the_shop_flutter/screens/Cart_screen.dart';
 import 'package:the_shop_flutter/screens/Prodect_detail.dart';
 import 'package:the_shop_flutter/screens/ProductsOverView.dart';
 import 'package:provider/provider.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
                 primaryVariant: Color.fromRGBO(194, 239, 179, 100),
                 secondary: Color.fromRGBO(116, 111, 114, 100),
                 secondaryVariant: Color.fromRGBO(116, 111, 114, 100),
-                surface: Color.fromRGBO(194, 239, 179, 100),
+                surface: Color.fromRGBO(89, 74, 38, 100),
                 background: Color.fromRGBO(151, 171, 177, 100),
                 error: Color.fromRGBO(89, 74, 38, 100),
                 onPrimary: Color.fromRGBO(115, 95, 61, 100),
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         home: ProductsOverView(),
         routes: {
           ProductDetail.ProductDetailRoute: (context) => ProductDetail(),
+          CartScreen.CartScreenRoute: (context) => CartScreen(),
         },
       ),
     );
