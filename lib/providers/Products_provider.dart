@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:the_shop_flutter/models/Products.dart';
+import 'package:the_shop_flutter/providers/Products.dart';
 
 class ProductProvider with ChangeNotifier {
   List<Products> _myProducts = [
@@ -39,5 +39,9 @@ class ProductProvider with ChangeNotifier {
 
   List<Products> get myProducts {
     return [..._myProducts];
+  }
+
+  List<Products> get myFavoriteProducts {
+    return _myProducts.where((product) => product.isfavorite == true).toList();
   }
 }
