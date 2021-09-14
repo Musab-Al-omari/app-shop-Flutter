@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_shop_flutter/providers/Cart_provider.dart';
 import 'package:the_shop_flutter/providers/Products_provider.dart';
 import 'package:the_shop_flutter/screens/Prodect_detail.dart';
 import 'package:the_shop_flutter/screens/ProductsOverView.dart';
@@ -9,8 +10,15 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => ProductProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (ctx) => CartProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => ProductProvider(),
+        ),
+      ],
       child: MaterialApp(
         title: 'MyShop',
         theme: ThemeData(
@@ -27,7 +35,7 @@ class MyApp extends StatelessWidget {
                 onSecondary: Color.fromRGBO(194, 239, 179, 100),
                 onSurface: Color.fromRGBO(194, 239, 179, 100),
                 onBackground: Color.fromRGBO(115, 95, 61, 100),
-                onError: Color.fromRGBO(89, 74, 38, 100),
+                onError: Colors.red,
                 brightness: Brightness.light)),
         home: ProductsOverView(),
         routes: {

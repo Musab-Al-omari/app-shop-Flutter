@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'package:the_shop_flutter/widgets/MyGridView.dart';
+import 'package:the_shop_flutter/widgets/badge.dart';
+import 'package:provider/provider.dart';
+import 'package:the_shop_flutter/providers/Cart_provider.dart';
 
 enum myfilter { all, favorite }
 
@@ -39,7 +41,16 @@ class _ProductsOverViewState extends State<ProductsOverView> {
               )
             ],
             icon: Icon(Icons.more_vert),
-          )
+          ),
+          Consumer<CartProvider>(
+            builder: (cx, cart, _) => Badge(
+              child: IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.shopping_cart),
+              ),
+              value: 2.toString(),
+            ),
+          ),
         ],
       ),
       body: MyGridView(isfavorite),
