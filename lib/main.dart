@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:the_shop_flutter/providers/Cart_provider.dart';
+import 'package:the_shop_flutter/providers/Order_Provider.dart';
 import 'package:the_shop_flutter/providers/Products_provider.dart';
 import 'package:the_shop_flutter/screens/Cart_screen.dart';
+import 'package:the_shop_flutter/screens/Order_screen.dart';
 import 'package:the_shop_flutter/screens/Prodect_detail.dart';
 import 'package:the_shop_flutter/screens/ProductsOverView.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +21,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (ctx) => ProductProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => OrdersProvider(),
+        )
       ],
       child: MaterialApp(
         title: 'MyShop',
@@ -42,6 +47,7 @@ class MyApp extends StatelessWidget {
         routes: {
           ProductDetail.ProductDetailRoute: (context) => ProductDetail(),
           CartScreen.CartScreenRoute: (context) => CartScreen(),
+          OrderScreen.OrderScreenRoutes: (context) => OrderScreen(),
         },
       ),
     );

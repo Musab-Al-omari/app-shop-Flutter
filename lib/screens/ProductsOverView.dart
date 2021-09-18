@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:the_shop_flutter/screens/Cart_screen.dart';
+import 'package:the_shop_flutter/widgets/MyDrawer.dart';
 import 'package:the_shop_flutter/widgets/MyGridView.dart';
 import 'package:the_shop_flutter/widgets/badge.dart';
 import 'package:provider/provider.dart';
@@ -56,6 +57,7 @@ class _ProductsOverViewState extends State<ProductsOverView> {
           ),
         ],
       ),
+      drawer: MyDrawer(),
       body: MyGridView(isfavorite),
     );
   }
