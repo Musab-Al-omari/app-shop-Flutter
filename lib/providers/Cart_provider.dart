@@ -64,4 +64,22 @@ class CartProvider with ChangeNotifier {
     _items.clear();
     notifyListeners();
   }
+
+  void unDo(String unDoId) {
+    if (!_items.containsKey(unDoId)) {
+      return;
+    }
+    if (_items[unDoId]!.quantity > 1) {
+      _items.update(
+          unDoId,
+          (existValue) => CartItems(
+              id: existValue.id,
+              title: existValue.title,
+              quantity: existValue.quantity - 1,
+              price: existValue.price));
+    } else {
+      _items.remove(unDoId);
+    }
+    notifyListeners();
+  }
 }
