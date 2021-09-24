@@ -48,4 +48,35 @@ class ProductProvider with ChangeNotifier {
   List<Products> get myFavoriteProducts {
     return _myProducts.where((product) => product.isfavorite == true).toList();
   }
+
+  void addProduct(Products newProduct) {
+    _myProducts.add(newProduct);
+    notifyListeners();
+  }
+
+  void deleteProduct(id) {
+    _myProducts.removeWhere((value) => value.id == id);
+    notifyListeners();
+  }
+
+  bool checkProductId(String _id) {
+    print('hello word');
+
+    for (var i = 0; i < _myProducts.length; i++) {
+      if (_myProducts[i].id == _id) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  void updateProduct(Products newProduct) {
+    for (var i = 0; i < _myProducts.length; i++) {
+      if (newProduct.id == _myProducts[i].id) {
+        _myProducts[i] = newProduct;
+        break;
+      }
+    }
+    notifyListeners();
+  }
 }
